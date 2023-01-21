@@ -1,0 +1,299 @@
+# დავალება N5
+# import matplotlib.pyplot as plt
+#
+# subject = ['Python', 'Calculus', 'Statistics','Machine Learning', 'Data Science', 'Big Data']
+# students = [58,47,57,65,49,42]
+# plt.bar(subject,students)
+# plt.ylabel('Number of students')
+# plt.title('Subjects vs students\nGalaktion Nizharadze')
+# plt.show()
+
+
+# დავალება N5
+# import  numpy as np
+# import  matplotlib.pyplot as plt
+# scores_Lana = ( 95 ,  84 ,  85 ,  90 ,  85 )
+# scores_Lasha = ( 92 ,  84 ,  80 ,  92 ,  95 )
+# fig, ax = plt.subplots ()
+# indexes = np.arange (len (scores_Lana))
+# bar_width =  0.4
+# data1 = plt.bar (indexes, scores_Lana, bar_width, color = 'yellow' , label = 'Lana' )
+# data2 = plt.bar (indexes + bar_width, scores_Lasha, bar_width, color = 'black' , label = 'Lasha' )
+# plt.ylabel ( 'Scores' )
+# plt.title ( 'Scores by Students\nExam ML' )
+# plt.xticks (indexes + bar_width / 2 , (  'Statistics' ,  'Python' ,  'Data Science' ,  'English', 'Calculus' ))
+# plt.legend ()
+# plt.tight_layout ()
+# plt.show ()
+
+# დავალება 6
+# import  numpy as np
+# import  matplotlib.pyplot as plt
+# scores_Lana = ( 98, 95, 89,94,92,86 )
+# scores_Lasha = (95,94,90,95,96,98 )
+# scores_Lado = ( 89,99,98,95,97,94 )
+# fig, ax = plt.subplots ()
+# indexes = np.arange (len (scores_Lana))
+# bar_width =  0.3
+# data1 = plt.bar (indexes, scores_Lana, bar_width, color = 'r' , label = 'Lana' )
+# data2 = plt.bar (indexes + bar_width, scores_Lasha, bar_width, color = 'green' , label = 'Lasha' )
+# data3 = plt.bar (indexes + 2*bar_width, scores_Lado, bar_width, color = 'yellow' , label = 'Lado' )
+# plt.ylabel ( 'Scores' )
+# plt.title ( 'Scores by Students\nExam ML BTU' )
+# plt.xticks (indexes + bar_width  , ( 'Maths' ,  'Statistics' ,  'Python' ,  'Data Science' ,  'English', 'Bioinformatics' ))
+# plt.legend ()
+# plt.tight_layout ()
+# plt.show ()
+
+# დავალება 7
+# from matplotlib import pyplot as plt
+# import numpy as np
+# cars = ['FORD', 'TESLA', 'JAGUAR','AUDI', 'BMW',  'MERCEDES']
+# numbers_cars = [23, 16, 20, 15, 56, 64]
+# fig = plt.figure(figsize =(5, 5))
+# plt.pie(numbers_cars, labels=cars, autopct='%1.1f%%')
+# plt.title ( 'Sales_BTU' )
+# plt.show()
+
+
+# დავალება 8
+# import matplotlib.pyplot as plt
+# Year = [2000,2001,2002,2003,2004,2005,2006,2007,2008,2009]
+# inflation_rate = [2.9, 3.5, 3.5, 3.4, 2.4, 2.8, 3.4, 4.8, 3.4, 3.9]
+# plt.plot(Year, inflation_rate, color='blue', marker='o')
+# plt.title('Inflation Rate Vs Year', fontsize=15)
+# plt.xlabel('Year', fontsize=15)
+# plt.ylabel('Inflation Rate', fontsize=15)
+# plt.grid(True)
+# plt.show()
+
+#დავალება 9
+# import numpy as np
+# import matplotlib.pyplot as plt
+# randomNumbers = np.random.normal(size=2000)
+# plt.figure(figsize=[9,7])
+# plt.hist(randomNumbers, width = 0.5, color='yellow',alpha=1)
+# plt.grid(axis='y', alpha=0.5)
+# plt.xlabel('Value',fontsize=13)
+# plt.ylabel('Frequency',fontsize=13)
+# plt.title('Normal Distribution Histogram',fontsize=13)
+# plt.show()
+
+# დავალება 10
+# import pandas as pd
+# import numpy as np
+# import seaborn as sns
+# iris_df = sns.load_dataset("iris")
+# X = iris_df.drop(['sephal_length'], axis=1)
+# y = iris_df["sephal_length"]
+# numerical = X.drop(['cut', 'color', 'clarity'], axis = 1)
+# categorical = X.filter(['cut', 'color', 'clarity'])
+# species_numerical = pd.get_dummies(categorical,drop_first=True)
+# X = pd.concat([numerical, species_numerical], axis = 1)
+# from sklearn.model_selection import train_test_split
+# X_train, X_test, y_train, y_test = train_test_split(X, y,  test_size=0.20, random_state=0)
+# from sklearn.preprocessing import StandardScaler
+# sc = StandardScaler()
+# X_train = sc.fit_transform(X_train)
+# X_test = sc.transform (X_test)
+#
+# # LinearRegression Model
+# from sklearn.linear_model import LinearRegression
+# lin_reg = LinearRegression()
+# regressor = lin_reg.fit(X_train, y_train)
+# y_pred = regressor.predict(X_test)
+#
+# from sklearn import metrics
+# print('LinearRegression:')
+# print('R^2:', metrics.r2_score(y_test, y_pred))
+# print('Mean Absolute Error:', metrics.mean_absolute_error(y_test, y_pred))
+# print('Mean Squared Error:', metrics.mean_squared_error(y_test, y_pred))
+# print('Root Mean Squared Error:', np.sqrt(metrics.mean_squared_error(y_test, y_pred)))
+#
+# # KNeighborsRegressor Model
+# from sklearn.neighbors import KNeighborsRegressor
+# knn_reg = KNeighborsRegressor(n_neighbors=5)
+# regressor = knn_reg.fit(X_train, y_train)
+# y_pred = regressor.predict(X_test)
+#
+# from sklearn import metrics
+# print('KNeighborsRegressor:')
+# print('R^2:', metrics.r2_score(y_test, y_pred))
+# print('Mean Absolute Error:', metrics.mean_absolute_error(y_test, y_pred))
+# print('Mean Squared Error:', metrics.mean_squared_error(y_test, y_pred))
+# print('Root Mean Squared Error:', np.sqrt(metrics.mean_squared_error(y_test, y_pred)))
+#
+# # RandomForestRegressor Model
+# from sklearn.ensemble import RandomForestRegressor
+# rf_reg = RandomForestRegressor(random_state=42, n_estimators=500)
+# regressor = rf_reg.fit(X_train, y_train)
+# y_pred = regressor.predict(X_test)
+#
+#
+# from sklearn import metrics
+#
+# print('RandomForestRegressor:')
+# print('R^2:', metrics.r2_score(y_test, y_pred))
+# print('Mean Absolute Error:', metrics.mean_absolute_error(y_test, y_pred))
+# print('Mean Squared Error:', metrics.mean_squared_error(y_test, y_pred))
+# print('Root Mean Squared Error:', np.sqrt(metrics.mean_squared_error(y_test, y_pred)))
+#
+# # SVR Model
+# from sklearn import svm
+# svm_reg = svm.SVR()
+# regressor = svm_reg.fit(X_train, y_train)
+# y_pred = regressor.predict(X_test)
+#
+# from sklearn import metrics
+# print('SVM Regressor:')
+# print('R^2:', metrics.r2_score(y_test, y_pred))
+# print('Mean Absolute Error:', metrics.mean_absolute_error(y_test, y_pred))
+# print('Mean Squared Error:', metrics.mean_squared_error(y_test, y_pred))
+# print('Root Mean Squared Error:', np.sqrt(metrics.mean_squared_error(y_test, y_pred)))
+
+
+# დავალება 11
+# import pandas as pd
+# import numpy as np
+# import seaborn as sns
+# iris_df = sns.load_dataset("iris")
+# X = iris_df.drop(['sephal_length'], axis=1)
+# y = iris_df["sephal_length"]
+# numerical = X.drop(['cut', 'color', 'clarity'], axis = 1)
+# categorical = X.filter(['cut', 'color', 'clarity'])
+# species_numerical = pd.get_dummies(categorical,drop_first=True)
+# X = pd.concat([numerical, species_numerical], axis = 1)
+# from sklearn.model_selection import train_test_split
+# X_train, X_test, y_train, y_test = train_test_split(X, y,  test_size=0.20, random_state=0)
+# from sklearn.preprocessing import StandardScaler
+# sc = StandardScaler()
+# X_train = sc.fit_transform(X_train)
+# X_test = sc.transform (X_test)
+# from sklearn.linear_model import LinearRegression
+# lin_reg = LinearRegression()
+# regressor = lin_reg.fit(X_train, y_train)
+# y_pred = regressor.predict(X_test)
+# from sklearn import metrics
+# print('LinearRegression:')
+# print('R^2:', metrics.r2_score(y_test, y_pred))
+# print('Mean Absolute Error:', metrics.mean_absolute_error(y_test, y_pred))
+# print('Mean Squared Error:', metrics.mean_squared_error(y_test, y_pred))
+# print('Root Mean Squared Error:', np.sqrt(metrics.mean_squared_error(y_test, y_pred)))
+# from sklearn.model_selection import cross_val_score
+# print(cross_val_score(regressor, X, y, cv=5, scoring ="neg_mean_absolute_error"))
+
+
+# დავალება 12
+# ა)
+
+# import numpy  as np
+# from sklearn.linear_model import LinearRegression
+# x =np.array([
+#   [32.0,22.5],[30.5,26.0],[25.0,28.0],[27.5,27.0] ,[28.0,26.5],[28.6,25.2]
+# ])
+# y =np.array([21.0,19.5,22.5,21.5,20.5,21.0])
+# model = LinearRegression()
+# model.fit(x,y)
+# r_sq =model.score(x,y)
+# print('coefficient of determination:', r_sq)
+# print('intercept:', model.intercept_)
+# print('slope:', model.coef_)
+# y_pred =model.predict(x)
+# print('predicted y is :' , y_pred)
+
+#შედეგი
+# coefficient of determination: 0.8392397838275242
+# intercept: 59.91897867175307
+# slope: [-0.7513294  -0.67387723]
+# predicted y is : [20.71420005 19.48262384 22.26718109 21.06273481 21.02400873 21.44925149]
+
+# ბ)
+# import numpy as np
+# from sklearn.linear_model import Ridge
+#
+# x = np.array([
+#     [32.0, 22.5], [30.5, 26.0], [25.0, 28.0], [27.5, 27.0], [28.0, 26.5], [28.6, 25.2]
+# ])
+# y = np.array([21.0,19.5,22.5,21.5,20.5,21.0])
+#
+# model = Ridge(alpha=1.25)
+# model.fit(x, y)
+# r_sq = model.score(x, y)
+# print('coefficient of determination:', r_sq)
+# print('intercept:', model.intercept_)
+# print('slope:', model.coef_)
+#
+# y_pred = model.predict(x)
+# print('predicted y is :', y_pred)
+
+# shedegi
+# coefficient of determination: 0.7848693666666263
+# intercept: 47.548840633745996
+# slope: [-0.55096445 -0.41718779]
+# predicted y is : [20.5312531  19.89754251 22.0934714  21.13324807 21.06635974 21.27812519]
+
+# გ)
+# import numpy as np
+# from sklearn.linear_model import Lasso
+#
+# x = np.array([
+#     [32.0, 22.5], [30.5, 26.0], [25.0, 28.0], [27.5, 27.0], [28.0, 26.5], [28.6, 25.2]
+#      ])
+# y = np.array([21.0,19.5,22.5,21.5,20.5,21.0])
+#
+# model = Lasso(alpha=0.68)
+# model.fit(x, y)
+# r_sq = model.score(x, y)
+# print('coefficient of determination:', r_sq)
+# print('intercept:', model.intercept_)
+# print('slope:', model.coef_)
+#
+# y_pred = model.predict(x)
+# print('predicted y is :', y_pred)
+
+# შედეგი
+# coefficient of determination: 0.37443501683501723
+# intercept: 25.256296296296295
+# slope: [-0.14882155  0.        ]
+# predicted y is : [20.49400673 20.71723906 21.53575758 21.1637037  21.08929293
+
+# დ)
+# import numpy as np
+# from sklearn.linear_model import ElasticNet
+#
+# x = np.array([
+#     [32.0, 22.5], [30.5, 26.0], [25.0, 28.0], [27.5, 27.0], [28.0, 26.5], [28.6, 25.2]
+# ])
+# y = np.array([21.0,19.5,22.5,21.5,20.5,21.0])
+#
+# model = ElasticNet(alpha=1.05, l1_ratio=0.
+# model.fit(x, y)
+# r_sq = model.score(x, y)
+# print('coefficient of determination:', r_sq)
+# print('intercept:', model.intercept_)
+# print('slope:', model.coef_)
+#
+# y_pred = model.predict(x)
+# print('predicted y is :', y_pred)
+
+# შედეგი
+# coefficient of determination: 0.30578563487771115
+# intercept: 24.19625322997416
+# slope: [-0.11175711  0.        ]
+# predicted y is : [20.62002584 20.7876615  21.40232558 21.12293282 21.06705426 21.        ]
+
+
+# დავალება 13
+
+
+# import numpy  as np
+# import statsmodels.api as sm
+# x =np.array([
+# [0.3,0.6],[0.25,0.39],[1.5,2.99],[3.0,4.99],[4.4,5.3],[1.3,4.5],[2.3
+# ,5.6],[7.7,7.9]
+# ])
+# y =np.array([4.8,4.3,7.5,12.1,14.2,19.2,21.3,34.7])
+# x =sm.add_constant(x)
+# model = sm.OLS(y, x)
+# results = model.fit()
+# print(results.summary())
